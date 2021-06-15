@@ -14,12 +14,12 @@ const App = () => {
 
   let countryCodes = Object.keys(countryList);
 
-  let countryCode1 = countryCodes[Math.floor(Math.random() * 249) + 1];
-  let countryCode2 = countryCodes[Math.floor(Math.random() * 249) + 1];
-  let countryCode3 = countryCodes[Math.floor(Math.random() * 249) + 1];
-  let countryCode4 = countryCodes[Math.floor(Math.random() * 249) + 1];
-  let countryCode5 = countryCodes[Math.floor(Math.random() * 249) + 1];
-  let countryCode6 = countryCodes[Math.floor(Math.random() * 249) + 1];
+  let countryCode1 = countryCodes[Math.floor(Math.random() * 248) + 1];
+  let countryCode2 = countryCodes[Math.floor(Math.random() * 248) + 1];
+  let countryCode3 = countryCodes[Math.floor(Math.random() * 248) + 1];
+  let countryCode4 = countryCodes[Math.floor(Math.random() * 248) + 1];
+  let countryCode5 = countryCodes[Math.floor(Math.random() * 248) + 1];
+  let countryCode6 = countryCodes[Math.floor(Math.random() * 248) + 1];
 
   const [gameData, setGameData] = useState({
     gameScore: 0,
@@ -63,12 +63,12 @@ const App = () => {
 
   const handleClick = (countrySelected) => {
     if (countrySelected === countryAsked) {
-      let countryCode1 = countryCodes[Math.floor(Math.random() * 249) + 1];
-      let countryCode2 = countryCodes[Math.floor(Math.random() * 249) + 1];
-      let countryCode3 = countryCodes[Math.floor(Math.random() * 249) + 1];
-      let countryCode4 = countryCodes[Math.floor(Math.random() * 249) + 1];
-      let countryCode5 = countryCodes[Math.floor(Math.random() * 249) + 1];
-      let countryCode6 = countryCodes[Math.floor(Math.random() * 249) + 1];
+      let countryCode1 = countryCodes[Math.floor(Math.random() * 248) + 1];
+      let countryCode2 = countryCodes[Math.floor(Math.random() * 248) + 1];
+      let countryCode3 = countryCodes[Math.floor(Math.random() * 248) + 1];
+      let countryCode4 = countryCodes[Math.floor(Math.random() * 248) + 1];
+      let countryCode5 = countryCodes[Math.floor(Math.random() * 248) + 1];
+      let countryCode6 = countryCodes[Math.floor(Math.random() * 248) + 1];
       setGameData((prevState) => {
         return {
           ...prevState,
