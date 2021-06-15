@@ -35,18 +35,19 @@
     height: 100%;
 
     .flagItem {
-      border: 2px solid black;
+      border: 5px solid black;
       border-radius: 10px;
       height: fit-content;
+      background-color: #214a9c33;
+
       margin: 30px;
-      height: 200px;
       width: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
 
       &:hover {
-        border: 2px solid white;
+        border: 5px solid white;
         cursor: pointer;
         transition-duration: 0.3s;
       }
