@@ -55,6 +55,12 @@ const App = () => {
     ],
   });
 
+  const countryAsked =
+    gameData.flagData[Math.floor(Math.random() * gameData.flagData.length)]
+      .name;
+
+  console.log(gameData.flagData);
+
   return (
     <div className="App">
       <header className="header">
@@ -63,13 +69,7 @@ const App = () => {
       </header>
 
       <div className="gameArea">
-        <p className="countryAsked">
-          {
-            gameData.flagData[
-              Math.floor(Math.random() * gameData.flagData.length)
-            ].name
-          }
-        </p>
+        <p className="countryAsked">{countryAsked}</p>
 
         <div className="flagCont">
           {gameData.flagData.map((i, k) => (
