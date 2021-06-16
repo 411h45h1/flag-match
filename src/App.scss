@@ -41,7 +41,6 @@
       background-color: #214a9c33;
 
       margin: 30px;
-      width: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -51,12 +50,39 @@
         cursor: pointer;
         transition-duration: 0.3s;
       }
-
-      .flag {
-        font-size: 100px;
-        user-select: none;
-      }
     }
+  }
+}
+
+.flag {
+  user-select: none;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 100px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    font-size: 130px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: 150px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 160px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 180px;
+  }
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 270px;
+  }
+
+  @media only screen and (min-width: 2600px) {
+    font-size: 350px;
   }
 }
 
