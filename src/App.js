@@ -2,6 +2,9 @@ import { useState } from "react";
 import useSound from "use-sound";
 import "./App.scss";
 import countryList from "./countryData";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import GameArea from "./pages/GameArea";
+import GameOver from "./pages/GameOver";
 
 const App = () => {
   const [errorSound] = useSound("/sounds/error.mp3", { volume: 0.25 });
@@ -22,6 +25,7 @@ const App = () => {
   let countryCode6 = countryCodes[Math.floor(Math.random() * 248) + 1];
 
   const [gameData, setGameData] = useState({
+    flagClicks: 0,
     gameScore: 0,
     flagData: [
       {
@@ -72,6 +76,7 @@ const App = () => {
       setGameData((prevState) => {
         return {
           ...prevState,
+          flagClicks: prevState.flagClicks + 1,
           gameScore: prevState.gameScore + 1,
           flagData: [
             {
@@ -111,38 +116,51 @@ const App = () => {
       setGameData((prevState) => {
         return {
           ...prevState,
+          flagClicks: prevState.flagClicks + 1,
           gameScore: prevState.gameScore - 1,
         };
       });
     }
   };
 
+  const onReset = () =>
+    setGameData((prevState) => {
+      return {
+        ...prevState,
+        flagClicks: 0,
+        gameScore: 0,
+      };
+    });
+
   return (
-    <div className="App">
-      <header className="header">
-        <h1>Flag Match</h1>
-        <h3>Score: {gameData.gameScore}</h3>
-      </header>
+    <Router>
+      <div className="App">
+        <header className="header">
+          <h1 onClick={() => onReset()}>
+            <Link className="title" to="/" style={{ textDecoration: "none" }}>
+              Flag Match
+            </Link>
+          </h1>
+          <h3>Score: {gameData.gameScore}</h3>
+        </header>
 
-      <div className="gameArea">
-        <p className="countryAsked">{countryAsked}</p>
-
-        <div className="flagCont">
-          {gameData.flagData.map((i, k) => (
-            <div
-              className="flagItem"
-              key={k}
-              onClick={() => {
-                handleClick(i.name);
-                return i.name === countryAsked ? correctSound() : errorSound();
-              }}
-            >
-              <div className="flag">{i.flag}</div>
-            </div>
-          ))}
-        </div>
+        <Switch>
+          <Route exact path="/">
+            <GameArea
+              flagData={gameData.flagData}
+              handleClick={handleClick}
+              countryAsked={countryAsked}
+              correctSound={correctSound}
+              errorSound={errorSound}
+              flagClicks={gameData.flagClicks}
+            />
+          </Route>
+          <Route exact path="/GameOver">
+            <GameOver score={gameData.gameScore} />
+          </Route>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 };
 
